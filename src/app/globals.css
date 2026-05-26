@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "tailwindcss";
-@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -40,228 +39,9 @@
 }
 
 /* ============================================================
-   LIGHT THEME — Default
+   PREMIUM AI DARK SYSTEM — default (dark mode)
    ============================================================ */
 :root {
-  /* Base */
-  --background:             #f0f4fa;
-  --bg-primary:             #f0f4fa;
-  --bg-secondary:           #ffffff;
-  --bg-elevated:            #e8eef8;
-
-  /* Text */
-  --foreground:             #0f172a;
-  --text-primary:           #0f172a;
-  --text-secondary:         rgba(15, 23, 42, 0.65);
-  --text-muted:             rgba(15, 23, 42, 0.4);
-
-  /* Cards */
-  --card:                   #ffffff;
-  --card-bg:                #ffffff;
-  --card-foreground:        #0f172a;
-  --popover:                #ffffff;
-  --popover-foreground:     #0f172a;
-
-  /* Brand */
-  --primary:                #0f172a;
-  --primary-foreground:     #ffffff;
-  --secondary:              rgba(0, 0, 0, 0.05);
-  --secondary-foreground:   #0f172a;
-  --muted:                  rgba(0, 0, 0, 0.04);
-  --muted-foreground:       rgba(15, 23, 42, 0.45);
-  --accent:                 rgba(0, 0, 0, 0.04);
-  --accent-color:           #0284c7;
-  --accent-secondary:       #2563eb;
-  --accent-foreground:      #0f172a;
-
-  /* Glow */
-  --hero-glow:              rgba(2, 132, 199, 0.08);
-  --glow-primary:           rgba(2, 132, 199, 0.12);
-  --glow-secondary:         rgba(37, 99, 235, 0.1);
-
-  /* Navbar */
-  --nav-bg:                 rgba(240, 244, 250, 0.9);
-  --nav-border:             rgba(0, 0, 0, 0.08);
-  --nav-link:               rgba(15, 23, 42, 0.55);
-  --nav-link-hover:         #0f172a;
-  --nav-underline:          #0284c7;
-
-  /* CTA */
-  --cta-bg:                 #0f172a;
-  --cta-text:               #ffffff;
-  --cta-hover:              #1e293b;
-
-  /* Section backgrounds */
-  --section-alt:            #e4ebf5;
-
-  /* Card inner surfaces */
-  --card-inner:             #f8faff;
-  --card-border:            rgba(0, 0, 0, 0.08);
-  --card-glow-base:         rgba(0, 0, 0, 0.04);
-
-  /* Glow card accent colors — shared across themes */
-  --glow-cyan:              rgba(2, 132, 199, 0.55);
-  --glow-purple:            rgba(124, 58, 237, 0.55);
-
-  /* Text on cards */
-  --card-text:              #0f172a;
-  --card-text-secondary:    rgba(15, 23, 42, 0.6);
-  --card-text-muted:        rgba(15, 23, 42, 0.38);
-
-  /* Heading accent gradient (section headings) */
-  --heading-gradient:       linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
-
-  /* Icon accent */
-  --icon-accent:            #0284c7;
-  --icon-accent-bg:         rgba(2, 132, 199, 0.1);
-  --icon-accent-border:     rgba(2, 132, 199, 0.2);
-
-  /* Stats */
-  --stat-value-gradient:    linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
-  --stat-label:             rgba(15, 23, 42, 0.45);
-  --separator:              rgba(2, 132, 199, 0.2);
-
-  /* Timeline */
-  --timeline-dot-bg:        linear-gradient(135deg, #dbeafe 0%, #eff6ff 60%, #f0f7ff 100%);
-  --timeline-dot-border:    rgba(37, 99, 235, 0.25);
-  --timeline-inner-dot:     linear-gradient(135deg, #0284c7, #2563eb);
-  --timeline-line:          linear-gradient(to right, rgba(37,99,235,0.25), rgba(2,132,199,0.25), rgba(37,99,235,0.25));
-  --timeline-period:        linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
-  --timeline-text:          rgba(15, 23, 42, 0.4);
-
-  /* Testimonial card */
-  --testimonial-bg:         #ffffff;
-  --testimonial-border:     rgba(0, 0, 0, 0.07);
-  --testimonial-text:       #0284c7;
-  --testimonial-quote:      rgba(2, 132, 199, 0.18);
-  --testimonial-name:       #0f172a;
-  --testimonial-role:       rgba(15, 23, 42, 0.45);
-
-  /* Borders */
-  --border:                 rgba(0, 0, 0, 0.09);
-  --border-subtle:          rgba(0, 0, 0, 0.05);
-  --input:                  rgba(0, 0, 0, 0.08);
-  --ring:                   rgba(2, 132, 199, 0.35);
-
-  --destructive:            oklch(0.577 0.245 27.325);
-  --radius:                 0.625rem;
-  --loader-bg:              #f0f4fa;
-
-  /* Sidebar */
-  --sidebar:                #ffffff;
-  --sidebar-foreground:     #0f172a;
-  --sidebar-primary:        #0284c7;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent:         rgba(0, 0, 0, 0.04);
-  --sidebar-accent-foreground: #0f172a;
-  --sidebar-border:         rgba(0, 0, 0, 0.08);
-  --sidebar-ring:           rgba(2, 132, 199, 0.35);
-}
-
-/* ============================================================
-   DARK THEME — Applied via .dark class on <html>
-   ============================================================ */
-html.dark {
-  --background:             #0d1321;
-  --bg-primary:             #0d1321;
-  --bg-secondary:           #111827;
-  --bg-elevated:            #131e2f;
-
-  --foreground:             rgba(240, 246, 255, 0.95);
-  --text-primary:           rgba(240, 246, 255, 0.95);
-  --text-secondary:         rgba(180, 200, 230, 0.7);
-  --text-muted:             rgba(120, 150, 190, 0.5);
-
-  --card:                   #111827;
-  --card-bg:                #111827;
-  --card-foreground:        rgba(240, 246, 255, 0.95);
-  --popover:                #111827;
-  --popover-foreground:     rgba(240, 246, 255, 0.95);
-
-  --primary:                rgba(240, 246, 255, 0.95);
-  --primary-foreground:     #0d1321;
-  --secondary:              rgba(255, 255, 255, 0.06);
-  --secondary-foreground:   rgba(240, 246, 255, 0.95);
-  --muted:                  rgba(255, 255, 255, 0.05);
-  --muted-foreground:       rgba(120, 150, 190, 0.55);
-  --accent:                 rgba(255, 255, 255, 0.07);
-  --accent-color:           #22d3ee;
-  --accent-secondary:       #3b82f6;
-  --accent-foreground:      rgba(240, 246, 255, 0.95);
-
-  --hero-glow:              rgba(34, 211, 238, 0.1);
-  --glow-primary:           rgba(34, 211, 238, 0.15);
-  --glow-secondary:         rgba(59, 130, 246, 0.12);
-
-  --nav-bg:                 rgba(13, 19, 33, 0.85);
-  --nav-border:             rgba(255, 255, 255, 0.07);
-  --nav-link:               rgba(140, 170, 210, 0.65);
-  --nav-link-hover:         rgba(240, 246, 255, 0.95);
-  --nav-underline:          #22d3ee;
-
-  --cta-bg:                 rgba(240, 246, 255, 0.95);
-  --cta-text:               #0d1321;
-  --cta-hover:              rgba(200, 220, 255, 0.9);
-
-  /* Section backgrounds */
-  --section-alt:            #08010f;
-  --card-inner:             #0d1321;
-  --card-border:            rgba(255, 255, 255, 0.07);
-  --card-glow-base:         rgba(255, 255, 255, 0.07);
-
-  --glow-cyan:              rgba(34, 211, 238, 0.65);
-  --glow-purple:            rgba(139, 92, 246, 0.6);
-
-  --card-text:              rgba(240, 246, 255, 0.95);
-  --card-text-secondary:    rgba(180, 200, 230, 0.62);
-  --card-text-muted:        rgba(120, 150, 190, 0.38);
-
-  --heading-gradient:       linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%);
-  --icon-accent:            #22d3ee;
-  --icon-accent-bg:         rgba(34, 211, 238, 0.1);
-  --icon-accent-border:     rgba(34, 211, 238, 0.2);
-
-  --stat-value-gradient:    linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%);
-  --stat-label:             rgba(120, 150, 190, 0.45);
-  --separator:              rgba(59, 130, 246, 0.22);
-
-  --timeline-dot-bg:        radial-gradient(circle at 50% 30%, #0d2a4a 0%, #071525 60%, #050e1a 100%);
-  --timeline-dot-border:    rgba(59, 130, 246, 0.25);
-  --timeline-inner-dot:     linear-gradient(135deg, #22d3ee, #3b82f6);
-  --timeline-line:          linear-gradient(to right, rgba(59,130,246,0.3), rgba(34,211,238,0.3), rgba(59,130,246,0.3));
-  --timeline-period:        linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%);
-  --timeline-text:          rgba(120, 150, 190, 0.4);
-
-  --testimonial-bg:         #111827;
-  --testimonial-border:     rgba(255, 255, 255, 0.07);
-  --testimonial-text:       #22d3ee;
-  --testimonial-quote:      rgba(34, 211, 238, 0.18);
-  --testimonial-name:       rgba(240, 246, 255, 0.95);
-  --testimonial-role:       rgba(120, 150, 190, 0.45);
-
-  --border:                 rgba(255, 255, 255, 0.08);
-  --border-subtle:          rgba(255, 255, 255, 0.04);
-  --input:                  rgba(255, 255, 255, 0.1);
-  --ring:                   rgba(34, 211, 238, 0.4);
-
-  --destructive:            oklch(0.704 0.191 22.216);
-  --loader-bg:              #0d1321;
-
-  --sidebar:                #111827;
-  --sidebar-foreground:     rgba(240, 246, 255, 0.95);
-  --sidebar-primary:        oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent:         rgba(255, 255, 255, 0.07);
-  --sidebar-accent-foreground: rgba(240, 246, 255, 0.95);
-  --sidebar-border:         rgba(255, 255, 255, 0.07);
-  --sidebar-ring:           rgba(34, 211, 238, 0.4);
-}
-
-/* ============================================================
-   PREMIUM AI DARK SYSTEM — default visual language
-   ============================================================ */
-:root,
-html.dark {
   --background:             #020617;
   --bg-primary:             #020617;
   --bg-secondary:           #030712;
@@ -299,14 +79,14 @@ html.dark {
   --nav-link-hover:         #ffffff;
   --nav-underline:          #93c5fd;
 
-  --cta-bg:                 linear-gradient(135deg, rgba(96, 165, 250, 0.95), rgba(129, 140, 248, 0.88));
+  --cta-bg:                 linear-gradient(135deg, rgba(96,165,250,0.95), rgba(129,140,248,0.88));
   --cta-text:               #ffffff;
-  --cta-hover:              linear-gradient(135deg, rgba(147, 197, 253, 0.98), rgba(96, 165, 250, 0.92));
+  --cta-hover:              linear-gradient(135deg, rgba(147,197,253,0.98), rgba(96,165,250,0.92));
 
   --section-alt:            #050b1d;
   --card-inner:             rgba(15, 23, 42, 0.56);
   --card-border:            rgba(147, 197, 253, 0.14);
-  --card-glow-base:         linear-gradient(135deg, rgba(147, 197, 253, 0.16), rgba(129, 140, 248, 0.08), rgba(255, 255, 255, 0.04));
+  --card-glow-base:         linear-gradient(135deg, rgba(147,197,253,0.16), rgba(129,140,248,0.08), rgba(255,255,255,0.04));
 
   --glow-cyan:              rgba(96, 165, 250, 0.7);
   --glow-purple:            rgba(129, 140, 248, 0.68);
@@ -322,7 +102,14 @@ html.dark {
 
   --stat-value-gradient:    linear-gradient(135deg, #ffffff 0%, #60a5fa 48%, #818cf8 100%);
   --stat-label:             rgba(255, 255, 255, 0.5);
-  --separator:              linear-gradient(90deg, transparent, rgba(147, 197, 253, 0.46), transparent);
+  --separator:              linear-gradient(90deg, transparent, rgba(147,197,253,0.46), transparent);
+
+  --timeline-dot-bg:        radial-gradient(circle at 50% 30%, #0d2a4a 0%, #071525 60%, #050e1a 100%);
+  --timeline-dot-border:    rgba(59, 130, 246, 0.25);
+  --timeline-inner-dot:     linear-gradient(135deg, #22d3ee, #3b82f6);
+  --timeline-line:          linear-gradient(to right, rgba(59,130,246,0.3), rgba(34,211,238,0.3), rgba(59,130,246,0.3));
+  --timeline-period:        linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%);
+  --timeline-text:          rgba(120, 150, 190, 0.6);
 
   --testimonial-bg:         rgba(15, 23, 42, 0.56);
   --testimonial-border:     rgba(147, 197, 253, 0.14);
@@ -336,47 +123,155 @@ html.dark {
   --input:                  rgba(147, 197, 253, 0.14);
   --ring:                   rgba(147, 197, 253, 0.45);
   --loader-bg:              #020617;
-}
 
-html.light {
-  color-scheme: dark;
-  --background:             #030712;
-  --bg-primary:             #030712;
-  --bg-secondary:           #07111f;
-  --bg-elevated:            #0f172a;
-  --text-primary:           rgba(255, 255, 255, 0.95);
-  --text-secondary:         rgba(255, 255, 255, 0.68);
-  --text-muted:             rgba(255, 255, 255, 0.42);
-  --nav-bg:                 rgba(3, 7, 18, 0.62);
-  --card-inner:             rgba(17, 24, 39, 0.58);
+  --destructive:            oklch(0.704 0.191 22.216);
+  --radius:                 0.625rem;
+
+  --sidebar:                rgba(15, 23, 42, 0.92);
+  --sidebar-foreground:     rgba(255, 255, 255, 0.95);
+  --sidebar-primary:        #60a5fa;
+  --sidebar-primary-foreground: #020617;
+  --sidebar-accent:         rgba(255, 255, 255, 0.07);
+  --sidebar-accent-foreground: rgba(255, 255, 255, 0.95);
+  --sidebar-border:         rgba(147, 197, 253, 0.14);
+  --sidebar-ring:           rgba(147, 197, 253, 0.45);
 }
 
 /* ============================================================
-   SMOOTH THEME TRANSITIONS
-   Only non-layout properties — no width/height/position
+   LIGHT MODE — html.light
    ============================================================ */
-html {
-  color-scheme: dark;
-}
-html.dark {
-  color-scheme: dark;
+html.light {
+  color-scheme: light;
+
+  --background:             #eef4ff;
+  --bg-primary:             #eef4ff;
+  --bg-secondary:           #f5f8ff;
+  --bg-elevated:            #ffffff;
+
+  --foreground:             #0c1a35;
+  --text-primary:           #0c1a35;
+  --text-secondary:         rgba(12, 26, 53, 0.68);
+  --text-muted:             rgba(12, 26, 53, 0.42);
+
+  --card:                   #ffffff;
+  --card-bg:                #ffffff;
+  --card-foreground:        #0c1a35;
+  --popover:                #ffffff;
+  --popover-foreground:     #0c1a35;
+
+  --primary:                #1d4ed8;
+  --primary-foreground:     #ffffff;
+  --secondary:              rgba(0, 0, 0, 0.05);
+  --secondary-foreground:   #0c1a35;
+  --muted:                  rgba(0, 0, 0, 0.04);
+  --muted-foreground:       rgba(12, 26, 53, 0.45);
+  --accent:                 rgba(29, 78, 216, 0.07);
+  --accent-color:           #1d4ed8;
+  --accent-secondary:       #7c3aed;
+  --accent-foreground:      #0c1a35;
+
+  --hero-glow:              rgba(29, 78, 216, 0.1);
+  --glow-primary:           rgba(29, 78, 216, 0.14);
+  --glow-secondary:         rgba(37, 99, 235, 0.1);
+
+  --nav-bg:                 rgba(238, 244, 255, 0.88);
+  --nav-border:             rgba(29, 78, 216, 0.12);
+  --nav-link:               rgba(12, 26, 53, 0.6);
+  --nav-link-hover:         #0c1a35;
+  --nav-underline:          #1d4ed8;
+
+  --cta-bg:                 #0c1a35;
+  --cta-text:               #ffffff;
+  --cta-hover:              #1e293b;
+
+  --section-alt:            #e2ecff;
+  --card-inner:             #f5f8ff;
+  --card-border:            rgba(29, 78, 216, 0.1);
+  --card-glow-base:         rgba(29, 78, 216, 0.04);
+
+  --glow-cyan:              rgba(29, 78, 216, 0.55);
+  --glow-purple:            rgba(124, 58, 237, 0.45);
+
+  --card-text:              #0c1a35;
+  --card-text-secondary:    rgba(12, 26, 53, 0.62);
+  --card-text-muted:        rgba(12, 26, 53, 0.38);
+
+  --heading-gradient:       linear-gradient(135deg, #1d4ed8 0%, #7c3aed 100%);
+  --icon-accent:            #1d4ed8;
+  --icon-accent-bg:         rgba(29, 78, 216, 0.1);
+  --icon-accent-border:     rgba(29, 78, 216, 0.2);
+
+  --stat-value-gradient:    linear-gradient(135deg, #0c1a35 0%, #1d4ed8 48%, #7c3aed 100%);
+  --stat-label:             rgba(12, 26, 53, 0.45);
+  --separator:              rgba(29, 78, 216, 0.2);
+
+  /* FIX #5 — light theme timeline uses blue/white tones, not dark navy */
+  --timeline-dot-bg:        linear-gradient(135deg, #dbeafe 0%, #eff6ff 60%, #f0f7ff 100%);
+  --timeline-dot-border:    rgba(37, 99, 235, 0.3);
+  --timeline-inner-dot:     linear-gradient(135deg, #1d4ed8, #7c3aed);
+  --timeline-line:          linear-gradient(to right, rgba(37,99,235,0.25), rgba(29,78,216,0.25), rgba(37,99,235,0.25));
+  --timeline-period:        linear-gradient(135deg, #1d4ed8 0%, #7c3aed 100%);
+  --timeline-text:          rgba(12, 26, 53, 0.5);
+
+  --testimonial-bg:         #ffffff;
+  --testimonial-border:     rgba(0, 0, 0, 0.07);
+  --testimonial-text:       #1d4ed8;
+  --testimonial-quote:      rgba(29, 78, 216, 0.18);
+  --testimonial-name:       #0c1a35;
+  --testimonial-role:       rgba(12, 26, 53, 0.45);
+
+  --border:                 rgba(29, 78, 216, 0.12);
+  --border-subtle:          rgba(29, 78, 216, 0.06);
+  --input:                  rgba(29, 78, 216, 0.1);
+  --ring:                   rgba(29, 78, 216, 0.35);
+  --loader-bg:              #eef4ff;
+
+  --destructive:            oklch(0.577 0.245 27.325);
+
+  --sidebar:                #ffffff;
+  --sidebar-foreground:     #0c1a35;
+  --sidebar-primary:        #1d4ed8;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent:         rgba(0, 0, 0, 0.04);
+  --sidebar-accent-foreground: #0c1a35;
+  --sidebar-border:         rgba(29, 78, 216, 0.1);
+  --sidebar-ring:           rgba(29, 78, 216, 0.35);
 }
 
-body {
-    @apply bg-background text-foreground;
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  min-height: 100vh;
-  background: #020617;
+/* ============================================================
+   COLOR SCHEME
+   ============================================================ */
+html { color-scheme: dark; }
+html.light { color-scheme: light; }
+
+/* ============================================================
+   SMOOTH THEME TRANSITIONS
+   
+   FIX (warning) — Only transition specific color/bg LONGHAND properties.
+   Never transition `background` shorthand because it resets `background-clip`
+   on every frame, causing React's "conflicting property" warning.
+   Use `background-color` and `background-image` separately instead.
+   ============================================================ */
+*, *::before, *::after {
+  transition:
+    background-color 0.4s ease,
+    background-image 0.4s ease,   /* ← longhand replaces `background` shorthand */
+    border-color 0.4s ease,
+    color 0.35s ease,
+    box-shadow 0.4s ease,
+    opacity 0.35s ease;
 }
 
-/* Disable transition on elements that use Framer Motion transforms */
+/* Disable transitions on Framer Motion elements to avoid conflicts */
 [data-framer-motion],
 .no-theme-transition,
 .no-theme-transition * {
   transition-property: none !important;
 }
 
+/* ============================================================
+   BASE STYLES
+   ============================================================ */
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -386,23 +281,24 @@ body {
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
     min-height: 100vh;
-    /* CHANGE: page base background — deep navy matching --background */
-    background: #020617;
+    background-color: var(--background);   /* ← background-color, not background */
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
   }
 }
 
 body::before { display: none !important; }
 body::after  { display: none !important; }
 
-
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--bg-base); }
-::-webkit-scrollbar-thumb { background: var(--color-primary); border-radius: 3px; }
-::selection { background: var(--color-primary); color: #fff; }
+::-webkit-scrollbar-track { background-color: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background-color: var(--primary); border-radius: 3px; }
+::selection { background-color: var(--primary); color: #fff; }
 
+/* ============================================================
+   UTILITY CLASSES
+   ============================================================ */
 .contact-quote {
   position: relative;
   padding-left: 1.5rem;
@@ -411,46 +307,50 @@ body::after  { display: none !important; }
   content: '';
   display: block;
   position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
+  left: 0; top: 0; bottom: 0;
   width: 4px;
   border-radius: 2px;
-  background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-accent-teal) 100%);
+  background-image: linear-gradient(180deg, var(--accent-color) 0%, var(--accent-secondary) 100%);
 }
 
 .input-field {
-  background: var(--card-inner);
+  background-color: var(--card-inner);
   color: var(--text-primary);
   padding: 0.75rem 1rem;
   width: 100%;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   border: 1px solid var(--border);
   border-radius: 0.75rem;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease;
   outline: none;
-  margin:0.5rem 0;
+  margin: 0.5rem 0;
 }
 .input-field::placeholder { color: var(--text-muted); }
 .input-field:focus {
   border-color: var(--icon-accent-border);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--icon-accent) 12%, transparent);
 }
-
 .input-field.input-error {
-  border-color: #EF4444;
+  border-color: #ef4444;
   box-shadow: 0 0 0 3px rgba(239,68,68,0.12);
 }
 .input-field.input-success {
   border-color: var(--icon-accent);
 }
 
+/*
+ * FIX (warning) — .gradient-text
+ * Replace the `background` shorthand with explicit `background-image`.
+ * When both `background` and `background-clip` are set on the same element,
+ * the shorthand resets `background-clip` each repaint, causing React's
+ * "conflicting property" warning and the visible gradient-strip bug in light mode.
+ */
 .gradient-text {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent-teal) 100%);
+  background-image: var(--heading-gradient);  /* longhand — never conflicts with clip */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  color: transparent;                          /* fallback */
 }
 
 .section-py {
@@ -466,41 +366,32 @@ body::after  { display: none !important; }
 
 /* ============================================================
    PLANET ORB KEYFRAMES
-   All keyframe transforms carry translateX(-50%) in every
-   state — required because element uses left:50% + translateX
-   for centering, and animation would override/drop it otherwise.
    ============================================================ */
-
 @keyframes planetPulse {
-  /* Planet body — very subtle scale breathe */
   0%, 100% { transform: translateX(-50%) scale(1);      opacity: 1;    }
   50%       { transform: translateX(-50%) scale(1.010);  opacity: 0.95; }
 }
 
 @keyframes planetGlow {
-  /* Outer halo ring — slightly larger pulse, dims at peak */
   0%, 100% { transform: translateX(-50%) scale(1);     opacity: 1;   }
   50%       { transform: translateX(-50%) scale(1.035); opacity: 0.7; }
 }
 
 @keyframes planetRim {
-  /* Rim gradient arc — brightness breathes independently */
-  /* CHANGE: opacity values to control rim pulsing intensity */
   0%, 100% { opacity: 0.82; transform: translateX(-50%); }
-  35%       { opacity: 1;    transform: translateX(-50%); }  /* brightest */
-  70%       { opacity: 0.58; transform: translateX(-50%); }  /* dimmest */
+  35%       { opacity: 1;    transform: translateX(-50%); }
+  70%       { opacity: 0.58; transform: translateX(-50%); }
 }
 
 @keyframes planetBloom {
-  /* Upward bloom — gentle scale + opacity pulse */
   0%, 100% { opacity: 0.8;  transform: translateX(-50%) scaleY(1);    }
   50%       { opacity: 1;    transform: translateX(-50%) scaleY(1.10); }
 }
 
-/* Respect user's reduced-motion preference */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  @keyframes planetPulse { 0%,100% { transform: translateX(-50%) scale(1);    opacity:1;    } }
-  @keyframes planetGlow  { 0%,100% { transform: translateX(-50%) scale(1);    opacity:1;    } }
-  @keyframes planetRim   { 0%,100% { opacity:0.82; transform: translateX(-50%);              } }
-  @keyframes planetBloom { 0%,100% { opacity:0.8;  transform: translateX(-50%) scaleY(1);   } }
+  @keyframes planetPulse { 0%,100% { transform: translateX(-50%) scale(1);   opacity:1;  } }
+  @keyframes planetGlow  { 0%,100% { transform: translateX(-50%) scale(1);   opacity:1;  } }
+  @keyframes planetRim   { 0%,100% { opacity:0.82; transform: translateX(-50%);           } }
+  @keyframes planetBloom { 0%,100% { opacity:0.8;  transform: translateX(-50%) scaleY(1); } }
 }

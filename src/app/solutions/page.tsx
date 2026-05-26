@@ -462,7 +462,7 @@ export default function SolutionsPage() {
                       <Check className="h-4 w-4 shrink-0" style={{ color: "#22d3ee" }} />
                       <span
                         className="text-sm font-medium"
-                        style={{ color: "rgba(255,255,255,0.85)" }}
+                        style={{ color: "var(--text-primary)" }}
                       >
                         {capability}
                       </span>

@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import { ArrowRight, Mail, MapPin, MessageCircle, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AnimatedInput from "@/components/ui/AnimatedInput";
-import mapBg from "@/assets/contact_banner_bg.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -59,7 +58,7 @@ function ContactHero() {
       <div
         className="absolute inset-y-0 right-0 hidden w-[58%] bg-right bg-cover bg-no-repeat md:block"
         style={{
-          backgroundImage: `linear-gradient(90deg, var(--bg-primary) 0%, color-mix(in srgb, var(--bg-primary) 72%, transparent) 34%, transparent 76%), url(${mapBg.src})`,
+          backgroundImage: `linear-gradient(90deg, var(--bg-primary) 0%, color-mix(in srgb, var(--bg-primary) 72%, transparent) 34%, transparent 76%)`,
           opacity: 0.34,
         }}
         aria-hidden

@@ -1,122 +1,60 @@
-import * as React from "react";
-import { Slot } from "@radix-ui/react-slot";
-import { cva, type VariantProps } from "class-variance-authority";
+"use client";
 
+import * as React from "react";
+import { motion, type HTMLMotionProps } from "framer-motion";
+import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  `
-    inline-flex
-    items-center
-    justify-center
-    whitespace-nowrap
-    rounded-full
-    font-medium
-    transition-all
-    duration-300
-    outline-none
-    cursor-pointer
-    disabled:pointer-events-none
-    disabled:opacity-50
-    active:scale-[0.98]
-    focus-visible:ring-2
-    focus-visible:ring-cyan-400/40
-    relative
-    overflow-hidden
-    backdrop-blur-xl
-    shadow-[0_12px_44px_rgba(15,23,42,0.28)]
-    before:content-['']
-    before:absolute
-    before:inset-0
-    before:translate-x-[-120%]
-    before:bg-[linear-gradient(110deg,transparent,rgba(255,255,255,0.26),transparent)]
-    before:transition-transform
-    before:duration-700
-    hover:before:translate-x-[120%]
-  `,
+  [
+    "inline-flex items-center justify-center whitespace-nowrap rounded-full",
+    "font-medium outline-none cursor-pointer select-none",
+    "disabled:pointer-events-none disabled:opacity-50",
+    "focus-visible:ring-2 focus-visible:ring-cyan-400/40",
+    "relative overflow-hidden backdrop-blur-xl",
+    "shadow-[0_12px_44px_rgba(15,23,42,0.28)]",
+    "transition-shadow duration-300",
+  ].join(" "),
   {
     variants: {
       variant: {
-        default: `
-          bg-white/8
-          text-white
-          border
-          border-white/18
-          hover:bg-white/12
-          hover:shadow-[0_0_42px_rgba(147,197,253,0.28)]
-        `,
+        // Always white text — gradient bg works in both themes
+        primary: [
+          "bg-gradient-to-r from-blue-500/95 via-sky-400/90 to-indigo-400/95",
+          "text-white border border-blue-200/30",
+          "hover:shadow-[0_0_48px_rgba(96,165,250,0.38)]",
+        ].join(" "),
 
-        primary: `
-          bg-gradient-to-r
-          from-blue-500/95
-          via-sky-400/90
-          to-indigo-400/95
-          text-white
-          border
-          border-blue-200/30
-          hover:scale-[1.02]
-          hover:shadow-[0_0_48px_rgba(96,165,250,0.38)]
-        `,
+        // FIX: was text-white (invisible on light bg).
+        // Use CSS var so dark=white, light=dark-navy
+        secondary: [
+          "border",
+          "hover:shadow-[0_0_36px_rgba(96,165,250,0.18)]",
+        ].join(" "),
 
-        secondary: `
-          bg-white/5
-          backdrop-blur-xl
-          border
-          border-white/14
-          text-white
-          hover:bg-white/10
-          hover:border-blue-200/24
-          hover:shadow-[0_0_36px_rgba(96,165,250,0.18)]
-        `,
+        // FIX: was text-white/80
+        default: [
+          "border",
+          "hover:shadow-[0_0_42px_rgba(147,197,253,0.28)]",
+        ].join(" "),
 
-        ghost: `
-          text-white/80
-          hover:bg-white/5
-          hover:text-white
-        `,
+        // FIX: was text-white/80
+        ghost: "hover:bg-black/5 dark:hover:bg-white/5",
 
-        outline: `
-          border
-          border-blue-300/30
-          bg-blue-400/5
-          text-blue-100
-          hover:bg-blue-400/10
-          hover:border-blue-200/60
-        `,
+        // FIX: was text-blue-100 (invisible in light)
+        outline: [
+          "border border-blue-300/30 bg-blue-400/5",
+          "hover:bg-blue-400/10 hover:border-blue-200/60",
+        ].join(" "),
       },
-
       size: {
-        sm: `
-          h-10
-          px-4
-          text-sm
-        `,
-
-        md: `
-          h-11
-          px-6
-          text-sm
-        `,
-
-        lg: `
-          h-12
-          px-8
-          text-base
-        `,
-
-        xl: `
-          h-14
-          px-10
-          text-lg
-        `,
-
-        icon: `
-          h-11
-          w-11
-        `,
+        sm:   "h-9 px-3 text-xs sm:h-10 sm:px-4 sm:text-sm",
+        md:   "h-10 px-4 text-xs sm:h-11 sm:px-6 sm:text-sm",
+        lg:   "h-11 px-5 text-sm sm:h-12 sm:px-8 sm:text-base",
+        xl:   "h-12 px-6 text-sm sm:h-14 sm:px-10 sm:text-lg",
+        icon: "h-9 w-9 sm:h-11 sm:w-11",
       },
     },
-
     defaultVariants: {
       variant: "primary",
       size: "md",
@@ -124,31 +62,85 @@ const buttonVariants = cva(
   }
 );
 
-type ButtonProps = React.ComponentProps<"button"> &
+// Per-variant inline styles — used for theme-aware properties that
+// Tailwind can't handle with dark: prefix alone (CSS variables).
+const variantStyles: Record<string, React.CSSProperties> = {
+  primary: {},
+  secondary: {
+    color:           "var(--text-primary)",
+    backgroundColor: "var(--card-bg)",
+    borderColor:     "var(--border)",
+  },
+  default: {
+    color:           "var(--text-primary)",
+    backgroundColor: "var(--card-bg)",
+    borderColor:     "var(--border)",
+  },
+  ghost: {
+    color: "var(--text-secondary)",
+  },
+  outline: {
+    color: "var(--accent-color)",
+  },
+};
+
+type ButtonProps = Omit<HTMLMotionProps<"button">, "children"> &
   VariantProps<typeof buttonVariants> & {
+    children?: React.ReactNode;
     asChild?: boolean;
   };
 
 function Button({
   className,
-  variant,
+  variant = "primary",
   size,
   asChild = false,
+  children,
+  style,
   ...props
 }: ButtonProps) {
-  const Comp = asChild ? Slot : "button";
+  const classes = cn(buttonVariants({ variant, size }), className);
+
+  // Merge variant base styles with any caller-supplied inline styles.
+  // Caller styles win (they come last), so Hero can still override bg/color.
+  const resolvedStyle: React.CSSProperties = {
+    ...variantStyles[variant ?? "primary"],
+    ...style,
+  };
+
+  if (asChild && React.isValidElement(children)) {
+    const child = children as React.ReactElement<React.HTMLAttributes<HTMLElement>>;
+    return React.cloneElement(child, {
+      ...child.props,
+      className: cn(classes, child.props.className),
+      // @ts-expect-error – style is valid on all HTML elements
+      style: { ...resolvedStyle, ...(child.props.style ?? {}) },
+    });
+  }
 
   return (
-    <Comp
-      className={cn(
-        buttonVariants({
-          variant,
-          size,
-          className,
-        })
-      )}
-      {...props}
-    />
+    <motion.button
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.97 }}
+      transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
+      className={classes}
+      style={resolvedStyle}
+      {...(props as HTMLMotionProps<"button">)}
+    >
+      {/* Shimmer sweep */}
+      <motion.span
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        initial={{ x: "-120%" }}
+        whileHover={{ x: "120%" }}
+        transition={{ duration: 0.7, ease: "easeInOut" }}
+        style={{
+          background:
+            "linear-gradient(110deg, transparent 20%, rgba(255,255,255,0.26) 50%, transparent 80%)",
+        }}
+      />
+      {children}
+    </motion.button>
   );
 }
 

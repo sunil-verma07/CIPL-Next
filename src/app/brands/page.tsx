@@ -176,7 +176,7 @@ export default function BrandsPage() {
                         <p
                           key={i}
                           className="text-sm leading-relaxed"
-                          style={{ color: "rgba(255,255,255,0.6)" }}
+                          style={{ color: "var(--text-primary)" }}
                         >
                           {para}
                         </p>
@@ -325,7 +325,7 @@ export default function BrandsPage() {
                 </p>
                 <p
                   className="text-sm sm:text-base leading-relaxed"
-                  style={{ color: "rgba(255,255,255,0.6)" }}
+                  style={{ color: "var(--text-primary)" }}
                 >
                   {brand.coreFocus}
                 </p>
@@ -380,7 +380,7 @@ export default function BrandsPage() {
             </h2>
             <p
               className="text-sm"
-              style={{ color: "rgba(255,255,255,0.55)" }}
+              style={{ color: "var(--text-primary)" }}
             >
               Every brand in our ecosystem benefits from the same central intelligence layer.
             </p>
@@ -414,7 +414,7 @@ export default function BrandsPage() {
                       </div>
                       <span
                         className="text-sm font-semibold"
-                        style={{ color: "rgba(255,255,255,0.85)" }}
+                        style={{ color: "var(--text-primary)" }}
                       >
                         {item.label}
                       </span>
@@ -469,7 +469,7 @@ export default function BrandsPage() {
             viewport={{ once: true }}
             custom={1}
             className="text-sm leading-relaxed"
-            style={{ color: "rgba(255,255,255,0.55)" }}
+            style={{ color: "var(--text-primary)" }}
           >
             Each brand is distinct. Each ecosystem is independent. But all are powered by the same Crediple
             intelligence layer — a unified backbone that accelerates growth across every domain.

@@ -13,7 +13,7 @@ export default function ThemeToggle() {
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
       whileTap={{ scale: 0.85 }}
       whileHover={{ scale: 1.1 }}
-      className="relative w-9 h-9 rounded-lg flex items-center justify-center cursor-pointer overflow-hidden"
+      className="relative w-9 h-9 min-w-9 rounded-lg flex items-center justify-center cursor-pointer overflow-hidden"
       style={{
         background: "var(--muted)",
         border: "1px solid var(--border)",

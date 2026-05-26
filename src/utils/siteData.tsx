@@ -9,10 +9,10 @@ import { FaDatabase } from "react-icons/fa6";
 import { FaClock } from "react-icons/fa6";
 
 export const NAV_LINKS = [
-  { label: "Home",   href: "/",        hasDropdown: false  },
-  { label: "About", href: "/about",        hasDropdown: false  },
-  { label: "Solutions",   href: "/solutions", hasDropdown: false },
-  { label: "Brand",      href: "/brands",    hasDropdown: false },
+  { label: "Home", href: "/", hasDropdown: false },
+  { label: "About", href: "/about", hasDropdown: false },
+  { label: "Solutions", href: "/solutions", hasDropdown: false },
+  { label: "Brands", href: "/brands", hasDropdown: false },
 ];
 
 export const HERO_CONTENT = {
@@ -113,8 +113,8 @@ export const SERVICES_HERO_CONTENT = {
     "Fast. Scalable. Future-ready.",
 
   cta1: {
-    label: "Our Services",
-    href: "/services",
+    label: "Our Solutions",
+    href: "/solutions",
   },
 
   cta2: {
@@ -155,32 +155,33 @@ export const BRANDS = [
   {
     name: "My Doctor Capsule",
     description:
-      "A comprehensive technology and data services brand specializing in IT infrastructure and solutions for modern businesses.",
-    href: "/brands/my-doctor-capsule",
-    icon: brand_icon_1
+      "Healthcare ecosystem focused on digital patient acquisition, healthcare visibility, and modern clinical growth systems.",
+    href: "https://www.mydoctorcapsule.com",
+    icon: brand_icon_1,
   },
   {
-    name: "Tech Solutions",
+    name: "Loan Konnekt",
     description:
-      "A comprehensive technology and data services brand specializing in IT infrastructure and solutions for modern businesses.",
-    href: "/brands/tech-solutions",
-    icon: brand_icon_2
+      "Structured financial intelligence and lending ecosystem simplifying credit analysis and borrower journeys.",
+    href: "https://www.loankonnekt.com",
+    icon: brand_icon_2,
   },
   {
-    name: "Data Services",
+    name: "Lawvix",
     description:
-      "A comprehensive technology and data services brand specializing in IT infrastructure and solutions for modern businesses.",
-    href: "/brands/data-services",
-    icon: brand_icon_3
+      "LegalTech platform focused on structured legal workflows, documentation automation, and digital legal access.",
+    href: "https://www.lawvix.com",
+    icon: brand_icon_3,
   },
   {
-    name: "Cloud Platform",
+    name: "Iitil",
     description:
-      "A comprehensive technology and data services brand specializing in IT infrastructure and solutions for modern businesses.",
-    href: "/brands/cloud-platform",
-    icon: brand_icon_4
+      "Data intelligence ecosystem transforming fragmented business data into strategic decision-making systems.",
+    href: "https://www.iitil.com",
+    icon: brand_icon_4,
   },
 ];
+
 
 export const STATS = [
   { value: "50+",   label: "Global Brands"  },
@@ -441,26 +442,40 @@ export const UNIFIED_ADVANTAGE = [
 
 
 export const FOOTER_QUICK_LINKS = [
-  { label: "Home",     href: "/" },
+  { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
-  { label: "Brands",   href: "/brands" },
-  { label: "Services", href: "/services" },
-  { label: "Contact",  href: "/contact" },
+  { label: "Brands", href: "/brands" },
+  { label: "Solutions", href: "/solutions" },
+  { label: "Contact", href: "/contact" },
 ];
  
 export const FOOTER_BRANDS = [
-  { label: "My Doctor Capsule", href: "/brands/my-doctor-capsule" },
-  { label: "Loan Konnekt",      href: "/brands/loan-konnekt" },
-  { label: "Lawvix",            href: "/brands/lawvix" },
-  { label: "Iitil",             href: "/brands/iitil" },
+  {
+    label: "My Doctor Capsule",
+    href: "https://www.mydoctorcapsule.com",
+  },
+  {
+    label: "Loan Konnekt",
+    href: "https://www.loankonnekt.com",
+  },
+  {
+    label: "Lawvix",
+    href: "https://www.lawvix.com",
+  },
+  {
+    label: "Iitil",
+    href: "https://www.iitil.com",
+  },
 ];
  
 export const FOOTER_LEGAL = [
-  { label: "Privacy Policy",  href: "/privacy-policy" },
-  { label: "Terms of Service", href: "/terms" },
-  { label: "Cookie Policy",   href: "/cookies" },
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Terms of Service", href: "/terms-of-service" },
+  { label: "Cookie Policy", href: "/cookie-policy" },
 ];
  
-export const FOOTER_TAGLINE = "Building the future through innovation, excellence, and unified brand power. The Core That Connects Every Venture.";
- 
-export const FOOTER_COPYRIGHT = "© 2024 Crediple. All rights reserved.";
+export const FOOTER_TAGLINE =
+  "Building the future through innovation, excellence, and unified brand power. The Core That Connects Every Venture.";
+
+export const FOOTER_COPYRIGHT =
+  "© 2018 Crediple. All rights reserved.";
